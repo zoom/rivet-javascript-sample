@@ -12,9 +12,5 @@
   "dependencies": {
     "@zoom/rivet": "0.0.1",
     "dotenv": "^16.4.5",
-    "tsc": "^2.0.4"
-  },
-  "devDependencies": {
-    "@types/node": "^22.7.6"
   }
 }
