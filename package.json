@@ -1,0 +1,20 @@
+{
+  "name": "zoom-rivet-sample",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@zoom/rivet": "0.0.1",
+    "dotenv": "^16.4.5",
+    "tsc": "^2.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.6"
+  }
+}
