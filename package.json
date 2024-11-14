@@ -11,6 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "@zoom/rivet": "0.0.1",
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.4.5"
   }
 }
