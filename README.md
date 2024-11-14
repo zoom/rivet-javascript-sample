@@ -41,6 +41,9 @@ CLIENT_SECRET="CLIENT_SECRET_HERE"
 WEBHOOK_SECRET_TOKEN="SECRET_TOKEN_HERE"
 ```
 
+[!WARNING]
+**Do not store credentials in plain text on production environments**
+
 6. Start your local development server using the following command:
 
 ```bash
