@@ -68,7 +68,7 @@ teamchat:
 ```
 
 ```bash
-$ ngrok start --all
+$ ngrok start teamchat chatbot
 ```
 
 8. ngrok will provide two `forwarding addresses`. Copy port `4001` URL and add it to the **Bot Endpoint URL** field in the **Features -> Surface -> Team Chat Subscriptions** section of the App Marketplace page for your chatbot, followed by `/zoom/events`. Here you can add the slash command `standup_bot`.
