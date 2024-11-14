@@ -7,7 +7,7 @@ This is a sample app using Zoom Rivet for JavaScript
 ## Installation
 Run the following command to clone the repository:
 
-```
+```bash
 $ git clone https://github.com/zoom/rivet-js-sample.git
 ```
 
@@ -15,19 +15,19 @@ $ git clone https://github.com/zoom/rivet-js-sample.git
 
 1. Navigate to the repository via command line:
 
-```
-cd rivet-sample-app
+```bash
+$ cd rivet-sample-app
 ```
 
 2. Install the dependencies:
 
-```
-npm install
+```bash
+$ npm install
 ```
 
 3. Create an environment file to store your credentials:
 
-```
+```bash
 $ touch .env
 ```
 
