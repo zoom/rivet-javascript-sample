@@ -31,7 +31,7 @@ npm install
 $ touch .env
 ```
 
-4. Obtain your `Client Id`, `Client Secret`, and `Secret Token` from the [App Marketplace](https://marketplace.zoom.us/). If you have not created a Chatbot, follow [these steps](https://developers.zoom.us/docs/team-chat-apps/create-chatbot/) to create a Chatbot App on the Zoom App Marketplace. **Make sure to mark your app as Admin-managed in the Basic Information section while setting up your app!**
+4. Obtain your `Client Id`, `Client Secret`, and `Secret Token` from the [App Marketplace](https://marketplace.zoom.us/). You can find the `Client Id` and `Client Secret` on the **Basic Information**, while you can find your `Secret Token` in the **Feature > Access page**. If you have not created a Chatbot, follow [these steps](https://developers.zoom.us/docs/team-chat-apps/create-chatbot/) to create a Chatbot App on the Zoom App Marketplace. **Make sure to mark your app as Admin-managed in the Basic Information section while setting up your app!**
 
 5. Enter your `Client Id`, `Client Secret`, and `Secret Token` into your newly created environment file:
 
@@ -43,13 +43,17 @@ WEBHOOK_SECRET_TOKEN="SECRET_TOKEN_HERE"
 
 6. Start your local development server using the following command:
 
-```
-node index.js
+```bash
+$ node index.js
 ```
 
 7. Now that you have your local server running, we need to use [ngrok](https://ngrok.com/docs/http/) to expose the two ports and allow Zoom Rivet to listen to the chatbot's webhook events.
 
-Usually ngrok allows forwarding a single port, but if you add the following to your ngrok configuration file, you can serve up both with a single command:
+Usually ngrok allows forwarding a single port, but if you add the following to your ngrok configuration file, you can serve up both with a single command. 
+
+```bash
+$ ngrok config edit
+```
 
 ```
 version: 2
@@ -63,13 +67,15 @@ teamchat:
     addr: 4002
 ```
 
-```
-ngrok start --all
+```bash
+$ ngrok start --all
 ```
 
-8. ngrok will provide two `forwarding addresses`. Copy port `4001` URL and add it to the **Bot Endpoint URL** field in the **Surface -> Team Chat** section of the App Marketplace page for your chatbot, followed by `/zoom/events`.
+8. ngrok will provide two `forwarding addresses`. Copy port `4001` URL and add it to the **Bot Endpoint URL** field in the **Features -> Surface -> Team Chat Subscriptions** section of the App Marketplace page for your chatbot, followed by `/zoom/events`. Here you can add the slash command `standup_bot`.
 
-9. Take the forwarding address for port `4002` and add it to the **Event notification endpoint URL** field in the **Access -> Event Subscription** section of the App Marketplace page for your chatbot, followed by `/zoom/events`.
+9. Now it is time to add the relevant Team Chat scopes to ensure your app is allowed to call API methods. You can add scopes via the **Scopes** section of the App Marketplace page for your chatbot. This sample app requires a minimum of the `imchat:bot`, and `team_chat:read:list_user_channels:admin`, `team_chat:read:list_members:admin` scopes.
+
+![Scopes](./public/scopes.png)
 
 10. Finally, you must Authorize by visiting the page provided by Rivet at `http://localhost:4002/zoom/oauth/install`. See [Authorizing with Zoom](https://developers.zoom.us/docs/integrations/oauth/) for more information.
 
@@ -79,7 +85,7 @@ ngrok start --all
 
 2. In any channel, type the following slash command to see a list of commands available:
 ```
-/standup-bot help
+/standup_bot help
 ```
 
 ![Help slash command](./public/slash-help.png)
@@ -87,7 +93,7 @@ ngrok start --all
 3. Use the following slash command to start the standup. The standup bot will automatically list each member of the channel and give them a field to provide their standup for the day.
 
 ```
-/standup-bot start
+/standup_bot start
 ```
 
 ![Start slash command](./public/slash-start.png)
