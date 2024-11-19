@@ -8,7 +8,7 @@ This is a sample app using Zoom Rivet for JavaScript
 Run the following command to clone the repository:
 
 ```bash
-$ git clone https://github.com/zoom/rivet-js-sample.git
+$ git clone https://github.com/zoom/rivet-javascript-sample.git
 ```
 
 ## Setup
