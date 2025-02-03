@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@zoom/rivet": "0.0.1",
+    "@zoom/rivet": "0.2.2",
     "dotenv": "^16.4.5"
   }
 }
